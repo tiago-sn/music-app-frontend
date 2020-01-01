@@ -1,4 +1,6 @@
 export default function() {
+  console.log('getMusicList');
+
   return [
     {
       title: 'Back Door Man',
