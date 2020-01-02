@@ -17,8 +17,8 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <p>Music App</p>
-        <MusicList musicList={musicList} />
       </header>
+      <MusicList musicList={musicList} />
     </div>
   );
 };
