@@ -6,7 +6,7 @@ import { useStyles } from './app.styles';
 import { Music } from './services/api/musics/types';
 
 const App: React.FC = () => {
-  const [musicList, setMusicList] = useState<Music[] | null>(null);
+  const [musicList, setMusicList] = useState<Music[] | null>([]);
   const classes = useStyles();
 
   useEffect(() => {
