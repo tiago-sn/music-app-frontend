@@ -3,14 +3,19 @@ import MusicList from './Components/MusicList';
 import api from './services/api';
 import { Container, AppBar } from '@material-ui/core';
 import { useStyles } from './app.styles';
+import { Music } from './services/api/musics/types';
 
 const App: React.FC = () => {
-  const [musicList, setMusicList] = useState();
+  const [musicList, setMusicList] = useState<Music[] | null>([]);
   const classes = useStyles();
 
   useEffect(() => {
-    const data = api.getMusicList();
-    setMusicList(data);
+    const fetchData = async () => {
+      const data = await api.getMusicList();
+      setMusicList(data);
+    };
+
+    fetchData();
   }, []);
 
   return (

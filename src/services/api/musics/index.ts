@@ -1,6 +1,20 @@
-export default function() {
-  console.log('getMusicList');
+import axios from '../axios';
+import { Music } from './types';
 
+export const getMusicList = async () => {
+  try {
+    const response = await axios.get<Music[]>('/musics');
+
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
+};
+
+export default function() {
   return [
     {
       title: 'Back Door Man',
