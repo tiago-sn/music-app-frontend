@@ -5,10 +5,10 @@ import { Music } from '../../services/api/musics/types';
 import MusicListItem from '../MusicListItem';
 
 interface IProps {
-  musicList: Music[];
+  musicList?: Music[];
 }
 
-const MovieList: React.FC<IProps> = ({ musicList }) => {
+const MusicList: React.FC<IProps> = ({ musicList }) => {
   return (
     <List>
       {musicList ? (
@@ -20,4 +20,4 @@ const MovieList: React.FC<IProps> = ({ musicList }) => {
   );
 };
 
-export default MovieList;
+export default MusicList;
