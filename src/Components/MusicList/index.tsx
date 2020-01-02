@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from '@material-ui/core';
+import { List, CircularProgress } from '@material-ui/core';
 import { Music } from '../../services/api/musics/types';
 
 import MusicListItem from '../MusicListItem';
@@ -11,8 +11,11 @@ interface IProps {
 const MovieList: React.FC<IProps> = ({ musicList }) => {
   return (
     <List>
-      {musicList &&
-        musicList.map((music, i) => <MusicListItem music={music} i={i} />)}
+      {musicList ? (
+        musicList.map((music, i) => <MusicListItem music={music} key={i} />)
+      ) : (
+        <CircularProgress />
+      )}
     </List>
   );
 };
