@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import MusicList from './Components/MusicList';
 import api from './services/api';
+import { Container, AppBar } from '@material-ui/core';
+import { useStyles } from './app.styles';
 
 const App: React.FC = () => {
   const [musicList, setMusicList] = useState();
+  const classes = useStyles();
 
   useEffect(() => {
-    console.log('useEffect');
-
     const data = api.getMusicList();
     setMusicList(data);
   }, []);
 
-  console.log('rendering <App />');
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <AppBar component="header">
         <p>Music App</p>
-      </header>
-      <MusicList musicList={musicList} />
+      </AppBar>
+      <Container component="main" className={classes.main} maxWidth="xs">
+        <MusicList musicList={musicList} />
+      </Container>
     </div>
   );
 };
