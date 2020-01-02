@@ -5,7 +5,7 @@ import { Music } from '../../services/api/musics/types';
 import MusicListItem from '../MusicListItem';
 
 interface IProps {
-  musicList?: Music[];
+  musicList: Music[] | null;
 }
 
 const MusicList: React.FC<IProps> = ({ musicList }) => {
